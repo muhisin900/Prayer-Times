@@ -1,16 +1,24 @@
 // component to get prayer times
 import React, { useState, useEffect } from 'react';
 
+function convertTo12Hour (time24) {
+  const [hours, minutes] = time24.split(':');
+  let hour = parseInt(hours, 10);
+  const amPm = hour >= 12 ? 'PM' : 'AM';
+  hour = hour % 12
+  hour = hour ? hour : 12;
+  return `${hour}:${minutes} ${amPm}`;
+}
+
 function PrayerTimes({ times }) {
+  const prayerOrder = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
   return (
-    <div>
+    <div className='times'>
       <h2>Prayer Times</h2>
       <ul>
-      <li>Fajr: 5:00 am</li>
-        <li>Dhuhr: 12:00 pm</li>
-        <li>Asr: 5:00 pm</li>
-        <li>Maghrib: 8:00 pm</li>
-        <li>Isha: 10:00 pm</li>
+        {prayerOrder.map(prayer => (
+          <li key={prayer}>{prayer}: {convertTo12Hour(times[prayer])}</li>
+        ))}
       </ul>
     </div>
   );

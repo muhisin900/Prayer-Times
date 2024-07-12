@@ -10,13 +10,14 @@ function LocationInput ({ setLocation }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <input 
+        className='lo-input'
         type="text"
         value={city}
         onChange={(e) => setCity(e.target.value)}
         placeholder="Enter city"
       />
-      <button type="submit">Set Location</button>
+      <button className="location-btn" type="submit">Set Location</button>
     </form>
   );
 }
