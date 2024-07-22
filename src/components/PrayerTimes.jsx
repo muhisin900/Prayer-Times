@@ -13,15 +13,39 @@ function convertTo12Hour (time24) {
 function PrayerTimes({ times }) {
   const prayerOrder = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
   return (
-    <div className='times'>
-      <h2>Prayer Times</h2>
-      <ul>
+
+    <div className='prayer-times'>
+      <h2 className='title'>Prayer Times</h2>
+      <ul className='times-list'>
         {prayerOrder.map(prayer => (
-          <li key={prayer}>{prayer}: {convertTo12Hour(times[prayer])}</li>
+          <li key={prayer} className="time-item">
+          <span className="prayer-name">{prayer}</span>
+          <span className="prayer-time">{convertTo12Hour(times[prayer])}</span>
+        </li>
         ))}
       </ul>
     </div>
+    
   );
 }
+
+{/* <div className="times">
+      <table>
+        <thread>
+          <tr>
+            <th>Prayer</th>
+            <th>Time</th>
+          </tr>
+          <tbody>
+            {prayerOrder.map(prayer => (
+              <tr key={prayer}>
+                <td>{prayer}</td>
+                <td>{times[prayer] ? convertTo12Hour(times[prayer]) : 'N/A'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </thread>
+      </table>
+    </div> */}
 
 export default PrayerTimes;

@@ -3,19 +3,25 @@
 * {
   margin: 0;
   font-family: "Quicksand";
-  color: #333;
+  color: #2d2d2d;
   background-color: #d8cbcb;
 }
+.App {
+    color: white;
+    /* align-items: center;
+    display: flex;
+    flex-direction: column; */
+}
+
 .navbar {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
 .navbar h1 {
-  color: #f1356d;
+  color: #ff7ea5;
 }
 .navbar .links {
   margin-left: auto;
@@ -37,36 +43,86 @@
 /********************
     LOCATION INPUT
 ********************/
-
-.lo-input {
+.lo-form{
+    padding: 2rem;
     align-items: center;
-    color: white;
-    border: 2px solid #8707ff;
-    border-radius: 10px;
-    padding: 10px 25px;
-    background: transparent;
-    max-width: 190px;
+    display: flex;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lo-form input {
+    background-color: #eee;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    width: 11em;
+    border-radius: 1rem;
+    color: lightcoral;
+    box-shadow: 0 0.4rem #dfd9d9;
+    cursor: pointer;
+}
+
+.lo-form input:focus {
+    outline-color: lightcoral;
+}
+
+.lo-form button{
+    color: rgb(27, 27, 27);
+    text-transform: capitalize;
+    border-radius: 100px;
+    border-color: black;
+    padding: 10px;
+}
+
+
+
+/********************
+    PRAYER TIMES
+********************/
+
+.prayer-times {
+    background-color: #dfd9d9;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+  
+.title {
+    color: #2c3e50;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-align: center;
+}
+  
+.times-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.time-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+  
+.time-item:last-child {
+    border-bottom: none;
+}
+  
+.prayer-name {
+    color: #34495e;
+    font-weight: 500;
   }
   
-.lo-input:active {
-    box-shadow: 2px 2px 15px #8707ff inset;
-}
-  
-.location-btn {
-  width: 120px;
-  height: 40px;
-  background-color: #13001b;
-  align-items: center;
-  color: white;
-  flex-direction: column;
-  justify-content: center;
-  border: none;
-  padding: 12px;
-  gap: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.location-btn:hover {
-    background-color: #2f005a;
+.prayer-time {
+    color: #3498db;
+    font-weight: 600;
 }

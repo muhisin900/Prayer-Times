@@ -3,7 +3,7 @@ import PrayerTimes from './components/PrayerTimes';
 import LocationInput from './components/LocationInput';
 import { getUserLocation } from './utils/geolocation';
 import { fetchPrayerTimes } from './utils/api';
-import Navbar from './components/Navbar';  // Uncomment if you have this component
+import Navbar from './components/Navbar';
 
 function App() {
   const [location, setLocation] = useState(null);
@@ -16,7 +16,6 @@ function App() {
       .then(setLocation)
       .catch(err => {
         console.error("Couldn't get user location:", err);
-        setError("Couldn't get your location. Please enter it manually.");
       })
       .finally(() => setLoading(false));
   }, []);
@@ -26,10 +25,6 @@ function App() {
       setLoading(true);
       fetchPrayerTimes(location)
         .then(setPrayerTimes)
-        .catch(err => {
-          console.error("Couldn't fetch prayer times:", err);
-          setError("Couldn't fetch prayer times. Please try again.");
-        })
         .finally(() => setLoading(false));
     }
   }, [location]);
@@ -39,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <h1>Islamic Prayer Times</h1>
+
       <LocationInput setLocation={setLocation} />
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
